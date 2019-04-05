@@ -10,7 +10,7 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-
+//Home route
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/signup.html");
 });
@@ -47,7 +47,7 @@ app.post("/", function(req, res){
     headers: {
       "Authorization": "caleb1 cf532df33ff78ccee5d520ad62bbcaa1-us19"
     },
-    body: jsonData //Entity body for POST requests (from npm request documentation)
+    // body: jsonData //Entity body for POST requests (from npm request documentation)
 
   }
 
@@ -64,7 +64,11 @@ app.post("/", function(req, res){
   });
 });
 
-// TODO: Success and Failure pages
+//Failure route to try again
+app.post("/failure", function(req, res){
+  //Completion handler that redirects to home route
+  res.redirect("/");
+});
 
 app.listen(3000, function(){
   console.log('Server running on port 3000');
