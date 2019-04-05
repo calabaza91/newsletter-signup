@@ -47,7 +47,7 @@ app.post("/", function(req, res){
     headers: {
       "Authorization": "caleb1 cf532df33ff78ccee5d520ad62bbcaa1-us19"
     },
-    // body: jsonData //Entity body for POST requests (from npm request documentation)
+    body: jsonData //Entity body for POST requests (from npm request documentation)
 
   }
 
