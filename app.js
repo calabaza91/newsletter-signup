@@ -70,7 +70,8 @@ app.post("/failure", function(req, res){
   res.redirect("/");
 });
 
-app.listen(3000, function(){
+//Listen on dynamic port with Heroku or on local system
+app.listen(process.env.PORT || 3000, function(){
   console.log('Server running on port 3000');
 });
 
