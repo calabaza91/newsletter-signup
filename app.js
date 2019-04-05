@@ -26,7 +26,12 @@ app.post("/", function(req, res){
     members: [
       { //One object bc subscribing one person at a time. Add more objects to add multiple people at a time
       email_address: email,
-      status: "subscribed"}
+      status: "subscribed",
+      merge_fields: {
+        FNAME:first,
+        LNAME:last
+        }
+      }
     ]
   };
 
