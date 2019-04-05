@@ -15,6 +15,8 @@ app.get("/", function(req, res){
   res.sendFile(__dirname + "/signup.html");
 });
 
+
+//POST request to capture email, first and last name of subscriber
 app.post("/", function(req, res){
 
   var first = req.body.first;
@@ -51,12 +53,18 @@ app.post("/", function(req, res){
 
   request(options, function(error, response, body){
     if (error) {
-      console.log(error);
+      res.send("There was a problem signing up, please try again!");
     } else {
-      console.log(response.statusCode);
+      if(response.statusCode === 200){
+        res.send("Success! Thanks for subscribing!");
+      }else{
+        res.send("There was a problem signing up, please try again!");
+      }
     }
   });
 });
+
+// TODO: Success and Failure pages
 
 app.listen(3000, function(){
   console.log('Server running on port 3000');
