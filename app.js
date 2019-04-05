@@ -53,12 +53,12 @@ app.post("/", function(req, res){
 
   request(options, function(error, response, body){
     if (error) {
-      res.send("There was a problem signing up, please try again!");
+      res.sendFile(__dirname + "/failure.html");
     } else {
       if(response.statusCode === 200){
-        res.send("Success! Thanks for subscribing!");
+        res.sendFile(__dirname + "/success.html");
       }else{
-        res.send("There was a problem signing up, please try again!");
+        res.sendFile(__dirname + "/failure.html");
       }
     }
   });
